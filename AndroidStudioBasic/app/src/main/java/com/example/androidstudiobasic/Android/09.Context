@@ -1,0 +1,14 @@
+
+
+09.Context
+
+역할
+- 1) ActivityManagerService(개발하기 편하도록 미리 구현해둔 기능) 에 접근 하도록 해주는 역할
+- 2) 주변 정보
+
+안드로이드는 이미 많은 부분들이 만들어져 있음 -> 이런 것들을 사용하기 위해 Context 사용한다
+
+종류
+- 1) activity 의 context(주변 정보) -> activity 의 주변 정보
+- 2) application 의 context(주변 정보) -> application 의 주변 정보
+- ApplicationContext > ActivityContext

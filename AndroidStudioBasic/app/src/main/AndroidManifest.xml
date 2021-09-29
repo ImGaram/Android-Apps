@@ -10,17 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidStudioBasic">
         <activity
-            android:name=".Resource"
-            android:exported="true" />
-        <activity
-            android:name=".OpenInternet"
-            android:exported="true">
+            android:name=".Context"
+            android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Resource"
+            android:exported="true" />
+        <activity
+            android:name=".OpenInternet"
+            android:exported="true" />
         <activity
             android:name=".NullSafety"
             android:exported="true" />
