@@ -1,0 +1,17 @@
+
+
+1. DataBinding
+
+목적
+- 1) 액티비티에서의 ui 호출 제거
+- 2) 앱 성능 향상
+
+추가해야 할 것들
+- 1) id 'kotlin-kapt'
+- 2) buildFeatures {
+         dataBinding true
+     }
+
+dataBinding 을 써야 하는 이유
+- 1) 팀 프로젝트를 할때 findViewById를 많이 쓰면 코드가 더러워짐
+= 2) 자신밖에 모르는 코드가 됨

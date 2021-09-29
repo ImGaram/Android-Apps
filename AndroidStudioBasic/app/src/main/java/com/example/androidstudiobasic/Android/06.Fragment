@@ -1,0 +1,27 @@
+
+
+06.Fragment
+- Activity -> 앱에 보이는 한 화면의 단위
+
+Fragment 가 필요한 경우
+- activity 가 가지는 문제
+    - ex
+    - 1) 파트 1,2,3,4,5,6 -> Activity 가 1~6까지 다 관리함 -> 복잡함, 길어짐
+- 다양한 디바이스에서 오는 문제
+    - 2) android 디바이스가 너무 많음
+    - 3) android 는 핸드폰만 있는게 아님(태블릿)
+
+사용처
+- activity 의 파트를 나누어서 책임진다
+
+Fragment 의 특징
+- 1) 라이프 사이클이 존재함
+- 2) 액티비티 종속적임(문제점)
+
+Fragment 사용법
+- 1) XML 에 ViewCompat 으로 추가
+- 2) 코드로(동적으로) 추가하기
+
+데이터 전달방법
+- 1) activity -> fragment : argument 와 bundle
+- 2) fragment -> activity : 자체 구현 해야함(리스너 구현)
