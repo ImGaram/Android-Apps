@@ -3,11 +3,10 @@ package com.example.androidstudiobasic
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.activity_fragment.*
 
-class FragmentActivity : AppCompatActivity(), Fragment1.OnDataPassListener {
+class FragmentActivity : AppCompatActivity(), FragmentOne.OnDataPassListener {
 
     override fun onDataPass(data: String?) {
         Log.d("pass", ""+data)
@@ -18,7 +17,7 @@ class FragmentActivity : AppCompatActivity(), Fragment1.OnDataPassListener {
         setContentView(R.layout.activity_fragment)
         Log.d("life-cycle","onCreate")
 
-        val fragmentOne: Fragment1 = Fragment1()    // 버튼1,2 둘 다 쓰기 위함
+        val fragmentOne: FragmentOne = FragmentOne()    // 버튼1,2 둘 다 쓰기 위함
         // Fragment 에 데이터를 넣기
         val bundle: Bundle = Bundle()
         bundle.putString("hello","hello")

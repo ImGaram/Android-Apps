@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".PhoneBookDetailActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/img"/>
+
+    <TextView
+        android:id="@+id/person_detail_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="abc"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/person_detail_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="010"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>

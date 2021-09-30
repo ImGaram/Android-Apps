@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.androidstudiobasic">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,15 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidStudioBasic">
         <activity
-            android:name=".Context"
-            android:exported="true" >
-
+            android:name=".PhoneBookDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PhoneBookActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LibraryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Thread"
+            android:exported="true" />
+        <activity
+            android:name=".Context"
+            android:exported="true" />
         <activity
             android:name=".Resource"
             android:exported="true" />
@@ -38,8 +55,9 @@
             android:name=".Intent1"
             android:exported="true" />
         <activity
-            android:name=".Fragment1"
-            android:exported="true" />
+            android:name=".FragmentOne"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".FragmentActivity"
             android:exported="true" />

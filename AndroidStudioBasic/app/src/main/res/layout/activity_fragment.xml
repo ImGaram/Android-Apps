@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/fragment_one"
-        android:name="com.example.androidstudiobasic.Fragment1"
+        android:name="com.example.androidstudiobasic.FragmentOne"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
 

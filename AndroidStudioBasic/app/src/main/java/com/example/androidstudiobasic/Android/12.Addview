@@ -1,0 +1,16 @@
+
+
+12. Addview
+
+listview
+- 유사하게 반복되는 뷰를 그리기 위한 도구
+
+listview 를 그리는 방법
+- 1) Addview -> 실제로 리스트뷰를 그리기 위해서 잘 사용되지 않음
+    - Item 을 담을 xml 을 만듬
+    - 그 xml 에 내용을 채움
+    - Container view 에 더해준다
+    - 반복한다
+
+- 2) Listview -> 예전에 많이 사용됨
+- 3) RecyclerView -> 최근에 가장 많이 사용되고 있고 가장 효율이 높다
