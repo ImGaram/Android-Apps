@@ -2,10 +2,13 @@ package com.example.androidstudiobasic
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_recycler.*
@@ -23,6 +26,7 @@ class RecyclerActivity : AppCompatActivity() {
         val adapter = RecyclerViewAdapter(carList, LayoutInflater.from(this@RecyclerActivity))
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this@RecyclerActivity)
+//        recycler_view.layoutManager = GridLayoutManager(this@RecyclerActivity, 2)
     }
 }
 
@@ -30,8 +34,8 @@ class RecyclerViewAdapter(
     val itemList: ArrayList<CarForList>,
     val inflater: LayoutInflater
 ): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
-
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    // 외부 클래스 변수 접근 inner
+    inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val carName: TextView
         val carEngine: TextView
 
@@ -39,6 +43,11 @@ class RecyclerViewAdapter(
         init {
             carName = itemView.findViewById(R.id.car_name)
             carEngine = itemView.findViewById(R.id.car_engine)
+            itemView.setOnClickListener {
+                val position: Int = adapterPosition
+                val engineName = itemList.get(position).engine
+                Log.d("engine", engineName)
+            }
         }
     }
     // 뷰를 만든다
