@@ -13,14 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidStudioBasic">
         <activity
-            android:name=".RecyclerActivity"
-            android:exported="true">
+            android:name=".PhoneBookWithRecyclerView"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RecyclerActivity"
+            android:exported="true" />
         <activity
             android:name=".ListViewActivity"
             android:exported="true" />
