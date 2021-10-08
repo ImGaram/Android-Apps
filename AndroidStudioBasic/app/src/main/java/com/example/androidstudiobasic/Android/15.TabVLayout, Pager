@@ -1,0 +1,10 @@
+
+
+15. TabLayout, Pager
+
+Pager -> 화면
+
+TabLayout -> tab 을 담당하는 역할
+
+Adapter
+- TabLayout 과 Pager 를 연결
