@@ -1,0 +1,36 @@
+
+
+16 database
+- 데이터를 저장하기 위함
+
+데이터 저장 방식
+- RDB (relational database)
+    -> 관계형 데이터 베이스
+    -> 엑셀처럼 생김
+        이름  학번  학교  성별
+        1    12   서울   남
+        2    12   서울   남
+        3    12   서울   남
+        4    12   서울   남
+
+- key, value 방식
+    -> 쌍으로 저장하는 방식(키, 벨류)
+
+- RDBMS
+    -> relational database management system
+    -> rdb 를 관리하기 위한 툴
+    -> mysql, oracle, postgresql
+
+- SQL
+    - RDMS 를 다루기 위한 언어
+
+- NoSQL
+    - SQL 말고 다르게 저장
+
+안드로이드 데이터베이스
+- SQLiteDataBase
+- SharePreference
+    - key-value 방식
+    - 목적: 공유된 사용자의 기호
+    - 하드하게 데이터베이스 시스템이 구축할수 없다
+
