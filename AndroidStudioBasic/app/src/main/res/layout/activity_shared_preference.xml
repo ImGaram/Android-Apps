@@ -9,7 +9,26 @@
     tools:context=".SharedPreferenceActivity">
 
     <Button
-        android:id="@+id/button_pre"
+        android:id="@+id/save_btn"
+        android:text="저장"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <Button
+        android:id="@+id/load_btn"
+        android:text="불러오기"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <Button
+        android:id="@+id/delete_btn"
+        android:text="부분 지우기"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <Button
+        android:id="@+id/delete_all_btn"
+        android:text="모두 지우기"
         android:layout_width="100dp"
         android:layout_height="100dp"/>
 
