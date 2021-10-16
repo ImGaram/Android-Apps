@@ -12,20 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPersonalProject">
         <activity
-            android:name=".FragmentThird"
-            android:exported="false" />
-        <activity
-            android:name=".FragmentSecond"
-            android:exported="false" />
-        <activity
-            android:name=".FragmentActivity"
-            android:exported="true">
+            android:name=".ThreadActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FragmentActivity"
+            android:exported="true" />
         <activity
             android:name=".Intent2Activity"
             android:exported="false" />
