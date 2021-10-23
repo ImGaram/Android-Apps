@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".animation.AniFragment1">
+    tools:context=".taglayout_viewpager.AniFragment1">
 
     <ImageView
         android:id="@+id/gif_animation1"
