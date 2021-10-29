@@ -15,17 +15,13 @@
         <activity
             android:name=".SharedPreferenceActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".TabPager2Activity"
             android:exported="true" />
         <activity
-            android:name=".Android.TabPagerActivity"
+            android:name=".TabPagerActivity"
             android:exported="true" />
         <activity
             android:name=".PhoneBookWithRecyclerView"
@@ -81,7 +77,13 @@
             android:exported="true" />
         <activity
             android:name=".Calculator"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
