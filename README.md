@@ -9,6 +9,6 @@
   <li>안드로이드 예제들(강의에서 배운 것들)</li>
   <li>안드로이드 문법 모음</li>
   <li>동아리에서 배운 것들</li>
-  <li>recyclerview 연습</li>
+  <li>recyclerview 연습 한 결과물</li>
   <li>retrofit 연습</li>
 </ul>
