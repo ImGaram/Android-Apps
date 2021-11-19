@@ -12,5 +12,5 @@
   <li>동아리에서 배운 것들</li>
   <li>navigation drawer 연습</li>
   <li>recyclerview 연습</li>
-  <li>retrofit 연습</li>
+  <li>retrofit 연습.</li>
 </ul>
