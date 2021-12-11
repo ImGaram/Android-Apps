@@ -34,7 +34,7 @@ open class Super4 {
     }
 }
 class Sub4: Super4() {
-    // open 으로 선언한 변수나 함수를 ㅎ위 클래스에서 재정의할때는 override 키워드를 쓴다
+    // open 으로 선언한 변수나 함수를 하위 클래스에서 재정의할때는 override 키워드를 쓴다
     override var someData = 20
     override fun someFun() {
         println("i am sub class function : $someData")
