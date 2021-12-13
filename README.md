@@ -8,6 +8,7 @@
   <li>책 보고 연습한 것들(진행 중)</li>
   <li>안드로이드 예제들(강의에서 배운 것들)</li>
   <li>안드로이드 문법 모음</li>
+  <li>안드로이드 앱 개발 프로젝트(강의)</li>
   <li>bottom navigation view 연습</li>
   <li>동아리에서 배운 것들</li>
   <li>navigation drawer 연습</li>
