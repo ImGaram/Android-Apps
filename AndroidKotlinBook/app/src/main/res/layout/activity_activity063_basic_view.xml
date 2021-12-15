@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_06_3_BasicView"
+    android:orientation="vertical">
+
+    <!--텍스트 뷰 속성-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hello World"
+        android:textColor="#ff0000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <!--자동 링크 속성-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="web|email|phone"
+            android:text="이지스퍼블리싱 - 웹 페이지 : http://easyspub.com, 전화번호 : 325-1722, 이메일 : easy@easyshub.co.kr"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <!--이미지 표시-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!--이미지 크기에 뷰의 크기 맞추기-->
+        <!--maxWidth, maxHeight 로 이미지 크기 지정, adjustViewBounds 로 가로세로 비율 유지(true)-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="100dp"
+            android:maxHeight="100dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_06_1"
+            tools:ignore="MissingConstraints" />
+        <!--layout_width, height 를 사용하면 이미지를 그 값의 범위 내에서 출력 할 수 있지만,
+        이미지 크기나 가로세로 비율이 다양하다면 뷰의 크기가 이미지 크기보다 커질 수 있다.-->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/img_06_1"
+            android:background="#00ff00"/>
+    </LinearLayout>
+    <!--버튼, 체크 박스, 라디오 버튼-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--checkbox 는 다중 선택, radiobutton 은 단일 선택 지원-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BUTTON1"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="check1"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="check2"/>
+        <!--RadioGroup 을 라디오 버튼이랑 같이 사용하면 radioGroup 과
+        함께 그룹으로 묶은 라디오 버튼 중 하나를 선택 할 수 있다.-->
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="radio1"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="radio2"/>
+        </RadioGroup>
+
+        <!--editText : 사용자가 글을 입략 할 수 있게 하는 뷰
+        속성 : lines : 입력 열 제한, maxLines : 사용자가 키보드에서 엔터를 누르면
+        n번째 줄까지 늘어나며 더는 늘어나지 않는다.
+        inputType : editText 에 글을 입력할때 올라오는 키보드를 지정-->
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+</LinearLayout>
