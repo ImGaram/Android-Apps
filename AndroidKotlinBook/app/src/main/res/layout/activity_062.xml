@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity_06_ViewClass">
+    tools:context=".Activity_06_2_ViewClass">
 
 <!--레이아웃 클래스에 뷰 포함하기-->
     <Button

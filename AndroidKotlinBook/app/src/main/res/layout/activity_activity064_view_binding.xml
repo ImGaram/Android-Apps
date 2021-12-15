@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:viewBindingIgnore="true"
+    tools:context=".Activity_06_4_ViewBinding">
+    <!--viewBindingIgnore : 해당 xml 파일을 위한 바인딩 클래스를 만들지 않음-->
+
+    <Button
+        android:id="@+id/visibleBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="visible"/>
+    <TextView
+        android:id="@+id/targetView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hello word"
+        android:background="#ff0000"
+        android:textColor="#000000"/>
+    <Button
+        android:id="@+id/invisibleBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="invisible"/>
+</LinearLayout>
