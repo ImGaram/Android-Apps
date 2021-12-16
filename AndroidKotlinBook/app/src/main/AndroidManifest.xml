@@ -10,17 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidKotlinBook">
         <activity
-            android:name=".Activity_06_4_ViewBinding"
-            android:exported="false" />
-        <activity
-            android:name=".Activity_06_3_BasicView"
-            android:exported="true">
+            android:name=".Activity_06_5_VerifyPassword"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity_06_4_ViewBinding"
+            android:exported="true" />
+        <activity
+            android:name=".Activity_06_3_BasicView"
+            android:exported="true" />
         <activity
             android:name=".Activity_06_2_ViewClass"
             android:exported="true" />

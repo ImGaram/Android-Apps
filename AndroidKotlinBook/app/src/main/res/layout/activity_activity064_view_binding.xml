@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:viewBindingIgnore="true"
     tools:context=".Activity_06_4_ViewBinding">
     <!--viewBindingIgnore : 해당 xml 파일을 위한 바인딩 클래스를 만들지 않음-->
 
