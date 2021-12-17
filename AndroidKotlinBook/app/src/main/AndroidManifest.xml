@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidKotlinBook">
         <activity
-            android:name=".Activity_06_5_VerifyPassword"
+            android:name=".userEvent.Activity_08_5_TouchKeyEvent"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity_06_5_VerifyPassword"
+            android:exported="true" />
         <activity
             android:name=".Activity_06_4_ViewBinding"
             android:exported="true" />
