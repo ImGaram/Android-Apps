@@ -3,6 +3,7 @@ package com.example.appdevelopproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appdevelopproject.databinding.ActivityMainBinding
 import com.example.appdevelopproject.recyclerview.Todo
@@ -21,18 +22,20 @@ class MainActivity : AppCompatActivity() {
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = TodoAdapter(viewModel.data, onClickDeleteIcon = {
+            adapter = TodoAdapter(emptyList(), onClickDeleteIcon = {
                 viewModel.deleteTodo(it)
-                binding.recyclerView.adapter?.notifyDataSetChanged()
             }, onClickItem = {
                 viewModel.toggleTodo(it)
-                binding.recyclerView.adapter?.notifyDataSetChanged()
             })
         }
         binding.addButton.setOnClickListener {
             val todo = Todo(binding.editText.text.toString())
             viewModel.addTodo(todo)
-            binding.recyclerView.adapter?.notifyDataSetChanged()
         }
+
+        // 관찰하는 코드
+        viewModel.todoLiveData.observe(this, Observer {
+            (binding.recyclerView.adapter as TodoAdapter).setData(it)
+        })
     }
 }

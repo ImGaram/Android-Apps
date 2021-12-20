@@ -9,7 +9,7 @@ import com.example.appdevelopproject.R
 import com.example.appdevelopproject.databinding.ItemTodoBinding
 
 class TodoAdapter(
-    private val myDataset: List<Todo>, val onClickDeleteIcon: (todo: Todo) -> Unit,
+    private var myDataset: List<Todo>, val onClickDeleteIcon: (todo: Todo) -> Unit,
     val onClickItem: (todo: Todo) -> Unit,
 ) :
     RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
@@ -51,4 +51,9 @@ class TodoAdapter(
         return myDataset.size
     }
 
+    // 데이터 바꾸는 메서드
+    fun setData(newData : List<Todo>) {
+        myDataset = newData
+        notifyDataSetChanged()
+    }
 }
