@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appdevelopproject.databinding.ActivityMainBinding
 import com.example.appdevelopproject.recyclerview.Todo
 import com.example.appdevelopproject.recyclerview.TodoAdapter
+import com.firebase.ui.auth.AuthUI
 
 class MainActivity : AppCompatActivity() {
+    val RC_SIGN_IN = 1000
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel:MainViewModel by viewModels()
@@ -19,6 +21,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        // 이메일 로그인 구현
+        val provider = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build()
+        )
+
+        // 첫 화면에 로그인 화면 추가
+        startActivityForResult(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(provider)
+                .build(), RC_SIGN_IN
+        )
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
