@@ -4,6 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,16 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         // 로그인이 안된 경우
         if (FirebaseAuth.getInstance().currentUser == null) {
-            // 이메일 로그인 구현
-            val provider = arrayListOf(
-                AuthUI.IdpConfig.EmailBuilder().build() )
-            // 첫 화면에 로그인 화면 추가
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setAvailableProviders(provider)
-                    .build(), RC_SIGN_IN
-            )
+            login()
         }
 
         binding.recyclerView.apply {
@@ -71,6 +65,46 @@ class MainActivity : AppCompatActivity() {
                 // 로그인 실패 시
                 finish()
             }
+        }
+    }
+
+    // 아이템 클릭 리스너
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_log_out -> {
+                logout()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // 로그인
+    fun login() {
+        // 이메일 로그인 구현
+        val provider = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build() )
+        // 첫 화면에 로그인 화면 추가
+        startActivityForResult(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(provider)
+                .build(), RC_SIGN_IN
+        )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    // 로그 아웃
+    fun logout() {
+        AuthUI.getInstance()
+            .signOut(this)
+            .addOnCompleteListener {
+
         }
     }
 }
