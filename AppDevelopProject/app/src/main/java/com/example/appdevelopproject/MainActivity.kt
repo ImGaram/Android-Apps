@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() {
             val response = IdpResponse.fromResultIntent(data)
 
             if (resultCode == Activity.RESULT_OK) {
-                val user = FirebaseAuth.getInstance().currentUser
+                val mainViewModel = MainViewModel()
+                mainViewModel.fetchData()
             } else {
                 // 로그인 실패 시
                 finish()
@@ -88,9 +89,9 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(
             AuthUI.getInstance()
                 .createSignInIntentBuilder()
-                .setAvailableProviders(provider)
-                .build(), RC_SIGN_IN
-        )
+                .setIsSmartLockEnabled(false)
+                .build(),
+            RC_SIGN_IN)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -104,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         AuthUI.getInstance()
             .signOut(this)
             .addOnCompleteListener {
-
-        }
+                login()
+            }
     }
 }
