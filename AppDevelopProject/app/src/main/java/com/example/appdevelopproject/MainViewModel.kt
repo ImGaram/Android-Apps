@@ -3,6 +3,7 @@ package com.example.appdevelopproject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.appdevelopproject.recyclerview.Todo
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -18,22 +19,24 @@ class MainViewModel:ViewModel() {
 
     fun fetchData() {
         // 데이터 읽어오기
-        db.collection("todos").get()
-            .addOnSuccessListener { result ->
-                data.clear()
-                for (document in result) {
-                    // 데이터 읽기
-                    val todo = Todo(
-                        document.data.get("text").toString(),
-                        document.data.get("isDone") as Boolean
-                    )
-                    data.add(todo)
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            db.collection(user.uid).get()
+                .addOnSuccessListener { result ->
+                    data.clear()
+                    for (document in result) {
+                        // 데이터 읽기
+                        val todo = Todo(
+                            document.data.get("text").toString(),
+                            document.data.get("isDone") as Boolean
+                        )
+                        data.add(todo)
+                    }
+                    // live data 적용
+                    todoLiveData.value = data
                 }
-                // live data 적용
-                todoLiveData.value = data
-            }.addOnFailureListener { exeption ->
+        }
 
-            }
     }
 
     // 완료 여부
