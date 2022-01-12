@@ -21,20 +21,36 @@ class MainViewModel:ViewModel() {
         // 데이터 읽어오기
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            db.collection(user.uid).get()
-                .addOnSuccessListener { result ->
+            db.collection(user.uid)
+                .addSnapshotListener { value, e ->
+                    if (e != null) {
+                        return@addSnapshotListener
+                    }
                     data.clear()
-                    for (document in result) {
+                    for (document in value!!) {
                         // 데이터 읽기
                         val todo = Todo(
-                            document.data.get("text").toString(),
-                            document.data.get("isDone") as Boolean
+                            document.getString("text") ?: "",
+                            document.getBoolean("isDone") ?: false  // 널이면 false
                         )
                         data.add(todo)
                     }
-                    // live data 적용
                     todoLiveData.value = data
                 }
+//                .get()
+//                .addOnSuccessListener { result ->
+//                    data.clear()
+//                    for (document in result) {
+//                        // 데이터 읽기
+//                        val todo = Todo(
+//                            document.data.get("text").toString(),
+//                            document.data.get("isDone") as Boolean
+//                        )
+//                        data.add(todo)
+//                    }
+//                    // live data 적용
+//                    todoLiveData.value = data
+//                }
         }
 
     }
