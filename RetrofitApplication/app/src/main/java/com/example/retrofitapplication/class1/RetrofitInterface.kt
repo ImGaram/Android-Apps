@@ -1,6 +1,6 @@
 package com.example.retrofitapplication.class1
 
-import com.example.retrofitapplication.data1.Result
+import com.example.retrofitapplication.class1.data.Result
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

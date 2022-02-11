@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitapplication.class1.RetrofitClient
 import com.example.retrofitapplication.class1.RetrofitInterface
-import com.example.retrofitapplication.data1.BoxOfficeResult
-import com.example.retrofitapplication.recyclerview1.MovieAdapter
+import com.example.retrofitapplication.class1.data.BoxOfficeResult
+import com.example.retrofitapplication.class1.recyclerview.MovieAdapter
 import retrofit2.Call
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import retrofit2.Callback
-import com.example.retrofitapplication.data1.Result
+import com.example.retrofitapplication.class1.data.Result
 
 
 class MainActivity : AppCompatActivity() {
