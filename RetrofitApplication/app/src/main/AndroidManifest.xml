@@ -3,8 +3,8 @@
     package="com.example.retrofitapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,13 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RetrofitApplication"
         android:usesCleartextTraffic="true">
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBBRSvmLeXkxSBw3DfSYDpXYVRaFwnUNqQ"/>
-
         <activity
-            android:name=".MainActivity3"
+            android:name=".LectureActivity2"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,12 +23,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity3"
+            android:exported="true" />
         <activity
             android:name=".MainActivity2"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBBRSvmLeXkxSBw3DfSYDpXYVRaFwnUNqQ" />
     </application>
 
 </manifest>
