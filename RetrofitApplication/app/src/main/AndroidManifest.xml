@@ -12,10 +12,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RetrofitApplication"
+        android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".LectureActivity2"
+            android:name=".LectureActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

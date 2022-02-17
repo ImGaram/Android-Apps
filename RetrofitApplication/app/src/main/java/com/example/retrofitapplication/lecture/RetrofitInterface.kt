@@ -1,5 +1,6 @@
 package com.example.retrofitapplication.lecture
 
+import com.example.retrofitapplication.lecture.utils.API
 import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.http.GET

@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/activity_lecture.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/activity_lecture.xml" value="0.4" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/activity_lecture2.xml" value="0.264" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/activity_main2.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/activity_main3.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/item.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/layout_button_search.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

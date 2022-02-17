@@ -1,7 +1,8 @@
 package com.example.retrofitapplication.lecture
 
 import android.util.Log
-import com.example.retrofitapplication.lecture.Constants.TAG
+import com.example.retrofitapplication.lecture.utils.API
+import com.example.retrofitapplication.lecture.utils.Constants.TAG
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
