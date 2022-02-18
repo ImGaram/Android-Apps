@@ -1,12 +1,15 @@
 package com.example.retrofitapplication.lecture
 
 import android.util.Log
+import com.example.retrofitapplication.lecture.model.Photo
 import com.example.retrofitapplication.lecture.utils.API
 import com.example.retrofitapplication.lecture.utils.Constants.TAG
-import com.example.retrofitapplication.lecture.utils.RESPONSE_STATE
+import com.example.retrofitapplication.lecture.utils.RESPONSE_STATUS
 import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import kotlin.collections.ArrayList
 
 class RetrofitManager {
 
@@ -15,38 +18,94 @@ class RetrofitManager {
         val instance = RetrofitManager()
     }
 
-    // http 콜 만들기
-    // retrofit interface 가져오기
-    private val httpCall: RetrofitInterface? = RetrofitClient.getClient(API.BASE_URL)?.create(RetrofitInterface::class.java)
+    // 레트로핏 인터페이스 가져오기
+    private val iRetrofit : RetrofitInterface? = RetrofitClient.getClient(API.BASE_URL)?.create(RetrofitInterface::class.java)
+
 
     // 사진 검색 api 호출
-    fun searchPhotos(searchTerm: String?, completion: (RESPONSE_STATE, String) -> Unit) {
+    fun searchPhotos(searchTerm: String?, completion: (RESPONSE_STATUS, ArrayList<Photo>?) -> Unit){
 
-        // searchTerm이 비어 있으면 "" 을 넣어라, 아니면 it 반환
         val term = searchTerm.let {
             it
         }?: ""
 
-        // 위것과 같다
 //        val term = searchTerm ?: ""
 
-        val call = httpCall?.searchPhotos(searchTerm = term).let {
+        val call = iRetrofit?.searchPhotos(searchTerm = term).let {
             it
         }?: return
+//        val call = iRetrofit?.searchPhotos(searchTerm = term) ?: return
 
-        call.enqueue(object : retrofit2.Callback<JsonElement> {
-            // 응답 성공시
-            override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
-                Log.d(TAG, "RetrofitManager - onResponse() called / response: ${response.body().toString()}")
-
-                completion(RESPONSE_STATE.OKAY, response.raw().toString())
-            }
+        call.enqueue(object : retrofit2.Callback<JsonElement>{
 
             // 응답 실패시
             override fun onFailure(call: Call<JsonElement>, t: Throwable) {
                 Log.d(TAG, "RetrofitManager - onFailure() called / t: $t")
 
-                completion(RESPONSE_STATE.FAIL, t.toString())
+                completion(RESPONSE_STATUS.FAIL, null)
+
+            }
+
+            // 응답 성공시
+            override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
+                Log.d(TAG, "RetrofitManager - onResponse() called / response : ${response.body()}")
+
+
+                when(response.code()){
+                    200 -> {
+
+                        response.body()?.let {
+
+                            var parsedPhotoDataArray = ArrayList<Photo>()
+
+                            val body = it.asJsonObject
+
+                            val results = body.getAsJsonArray("results")
+
+                            val total = body.get("total").asInt
+
+                            Log.d(TAG, "RetrofitManager - onResponse() called / total: $total")
+
+                            // 데이터가 없으면 no_content 로 보낸다.
+                            if(total == 0) {
+                                completion(RESPONSE_STATUS.NO_CONTENT, null)
+
+                            } else { // 데이터가 있다면
+
+                                results.forEach { resultItem ->
+                                    val resultItemObject = resultItem.asJsonObject
+                                    val user = resultItemObject.get("user").asJsonObject
+                                    val username : String = user.get("username").asString
+                                    val likesCount = resultItemObject.get("likes").asInt
+                                    val thumbnailLink = resultItemObject.get("urls").asJsonObject.get("thumb").asString
+                                    val createdAt = resultItemObject.get("created_at").asString
+                                    val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                                    val formatter = SimpleDateFormat("yyyy년\nMM월 dd일")
+
+                                    val outputDateString = formatter.format(parser.parse(createdAt))
+
+//                                    Log.d(TAG, "RetrofitManager - outputDateString : $outputDateString")
+
+                                    val photoItem = Photo(
+                                        author = username,
+                                        likesCount = likesCount,
+                                        thumbnail = thumbnailLink,
+                                        createdAt = outputDateString
+                                    )
+                                    parsedPhotoDataArray.add(photoItem)
+
+                                }
+
+                                completion(RESPONSE_STATUS.OKAY , parsedPhotoDataArray)
+                            }
+                        }
+
+
+                    }
+                }
+
+
+
             }
 
         })

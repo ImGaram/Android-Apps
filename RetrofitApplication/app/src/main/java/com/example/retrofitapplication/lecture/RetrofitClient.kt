@@ -1,8 +1,12 @@
 package com.example.retrofitapplication.lecture
 
+import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import com.example.retrofitapplication.lecture.utils.API
 import com.example.retrofitapplication.lecture.utils.Constants.TAG
+import com.example.retrofitapplication.lecture.utils.isJsonArray
+import com.example.retrofitapplication.lecture.utils.isJsonObject
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -12,6 +16,7 @@ import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import android.os.Handler
 
 // 싱글턴
 object RetrofitClient {
@@ -50,7 +55,7 @@ object RetrofitClient {
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         // 위에서 설정한 loggingInterceptor를 okHttp 클라이언트에 추가
-        client.addInterceptor(loggingInterceptor)
+//        client.addInterceptor(loggingInterceptor)
 
         // 2. 기본 파리미터 추가
         val baseParameterIntercepter: Interceptor = (object :Interceptor {
@@ -66,7 +71,15 @@ object RetrofitClient {
                     .method(originalRequest.method, originalRequest.body)
                     .build()
 
-                return chain.proceed(finalRequest)
+                val response = chain.proceed(finalRequest)
+                if (response.code != 200) {
+
+                    Handler(Looper.getMainLooper()).post {
+                        Toast.makeText(App.instance, "${response.code} 에러 입니다", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                return response
             }
         })
 
