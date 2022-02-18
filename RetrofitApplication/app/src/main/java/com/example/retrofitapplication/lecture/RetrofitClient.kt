@@ -24,12 +24,12 @@ object RetrofitClient {
         Log.d(TAG,"RetrofitClient - getClient() called")
 
         // 1. 로깅 인터셉터 추가
-        // okHttp 인서턴스 추가
+        // okHttp 인서턴스 생성
         val client = OkHttpClient.Builder()
         // 로그를 찍기 위한 로깅 인터셉터 추가
         val loggingInterceptor = HttpLoggingInterceptor(object :HttpLoggingInterceptor.Logger {
             override fun log(message: String) {
-                Log.d(TAG, "RetrofitClient - log{} called / message: $message")
+//                Log.d(TAG, "RetrofitClient - log{} called / message: $message")
 
                 when {
                     message.isJsonObject() ->
@@ -47,7 +47,7 @@ object RetrofitClient {
             }
         })
 
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS)
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         // 위에서 설정한 loggingInterceptor를 okHttp 클라이언트에 추가
         client.addInterceptor(loggingInterceptor)
@@ -61,7 +61,10 @@ object RetrofitClient {
 
                 // query 파라미터 추가
                 val addedUrl = originalRequest.url.newBuilder().addQueryParameter("client_id", API.CLIENT_ID).build()
-                val finalRequest = originalRequest.newBuilder().url(addedUrl).method(originalRequest.method, originalRequest.body).build()
+                val finalRequest = originalRequest.newBuilder()
+                    .url(addedUrl)
+                    .method(originalRequest.method, originalRequest.body)
+                    .build()
 
                 return chain.proceed(finalRequest)
             }
@@ -71,10 +74,10 @@ object RetrofitClient {
         client.addInterceptor(baseParameterIntercepter)
 
         // 커넥션 타임아웃
-        client.connectTimeout(10, TimeUnit.SECONDS)
+        client.connectTimeout(10, TimeUnit.SECONDS)     // 10초동안 반응이 없으면 종료
         client.readTimeout(10, TimeUnit.SECONDS)
         client.writeTimeout(10, TimeUnit.SECONDS)
-        client.retryOnConnectionFailure(true)
+        client.retryOnConnectionFailure(true)   // 실패했을때 재실행 여부
 
         if (retrofitClient == null) {
 

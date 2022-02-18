@@ -11,8 +11,10 @@ import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.retrofitapplication.databinding.ActivityLectureBinding
+import com.example.retrofitapplication.lecture.RetrofitManager
 import com.example.retrofitapplication.lecture.onMyTextChanged
 import com.example.retrofitapplication.lecture.utils.Constants.TAG
+import com.example.retrofitapplication.lecture.utils.RESPONSE_STATE
 import com.example.retrofitapplication.lecture.utils.SEARCH_TYPE
 import com.google.android.material.button.MaterialButton
 
@@ -70,10 +72,25 @@ class LectureActivity : AppCompatActivity() {
             }
         }
 
-        // 버튼 클릭시
+        // 검색 버튼 클릭시
         val buttonSearch = findViewById<MaterialButton>(R.id.button_search)
         buttonSearch.setOnClickListener {
             Log.d(TAG, "onCreate - 검색 버튼이 클릭됨 / currentSearchType : $currentSearchType")
+
+            // 사진 검색 api 호출
+            RetrofitManager.instance.searchPhotos(searchTerm = binding.searchTermEditText.toString(), completion = {
+                    responseState, responseBody ->
+                when(responseState) {
+                    RESPONSE_STATE.OKAY -> {
+                        Log.d(TAG, "api 호출 성공 : $responseBody")
+                    }
+                    RESPONSE_STATE.FAIL -> {
+                        Toast.makeText(this, "api 호출 에러입니다." ,Toast.LENGTH_SHORT).show()
+                        Log.d(TAG, "api 호출 실패 : $responseBody")
+                    }
+                }
+            })
+
             this.handleSearchButtonUi()
         }
     } // onCreate
