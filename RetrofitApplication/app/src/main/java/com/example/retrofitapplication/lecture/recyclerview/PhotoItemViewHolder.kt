@@ -11,25 +11,30 @@ import com.example.retrofitapplication.lecture.App
 import com.example.retrofitapplication.lecture.model.Photo
 import com.example.retrofitapplication.lecture.utils.Constants.TAG
 
-class PhotoItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class PhotoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    // 뷰를 가져온다
+    // 뷰들을 가져온다.
     private val photoImageView = itemView.findViewById<ImageView>(R.id.photo_image)
     private val photoCreatedAtText = itemView.findViewById<TextView>(R.id.created_at_text)
-    private val photoLikesCount = itemView.findViewById<TextView>(R.id.likes_count_text)
+    private val photoLikesCountText = itemView.findViewById<TextView>(R.id.likes_count_text)
 
-    // 데이터와 뷰를 묶는다
-    fun bindItemView(photoItem:Photo) {
-        Log.d(TAG, "PhotoItemViewHolder - bindItemView() called ")
+
+    // 데이터와 뷰를 묶는다.
+    fun bindWithView(photoItem: Photo){
+        Log.d(TAG, "PhotoItemViewHolder - bindWithView() called")
 
         photoCreatedAtText.text = photoItem.createdAt
-        photoLikesCount.text = photoItem.likesCount.toString()
 
-        // 이미지 설정
+        photoLikesCountText.text = photoItem.likesCount.toString()
+
+        // 이미지를 설정한다.
         Glide.with(App.instance)
             .load(photoItem.thumbnail)
             .placeholder(R.drawable.ic_baseline_insert_photo_24)
             .into(photoImageView)
+
+
     }
+
 
 }

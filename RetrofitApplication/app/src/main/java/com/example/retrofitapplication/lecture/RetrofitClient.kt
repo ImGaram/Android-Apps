@@ -58,7 +58,7 @@ object RetrofitClient {
 //        client.addInterceptor(loggingInterceptor)
 
         // 2. 기본 파리미터 추가
-        val baseParameterIntercepter: Interceptor = (object :Interceptor {
+        val baseParameterInterceptor: Interceptor = (object :Interceptor {
             override fun intercept(chain: Interceptor.Chain): Response {
                 Log.d(TAG, "RetrofitClient - intercept() called")
                 // 오리지날 request
@@ -84,7 +84,7 @@ object RetrofitClient {
         })
 
         // 위에서 설정한 기본 파라미터 인터셉터를 okHttp 클라이언트에 추가한다
-        client.addInterceptor(baseParameterIntercepter)
+        client.addInterceptor(baseParameterInterceptor)
 
         // 커넥션 타임아웃
         client.connectTimeout(10, TimeUnit.SECONDS)     // 10초동안 반응이 없으면 종료
