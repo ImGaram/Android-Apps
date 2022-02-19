@@ -27,4 +27,16 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
+
+    <style name="MyRadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="colorControlNormal">@color/colorLightGray</item>
+        <item name="colorControlActivated">@color/purple_500</item>
+        <item name="colorControlHighlight">@color/colorLightPink</item>
+    </style>
+
+    <style name="MySwitchButton" parent="">
+        <item name="colorSwitchThumbNormal">@color/colorLightGray</item>
+        <item name="colorControlActivated">@color/purple_500</item>
+        <item name="android:colorForeground">@color/colorLightGray</item>
+    </style>
 </resources>
