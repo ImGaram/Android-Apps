@@ -15,12 +15,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitapplication.R
 import com.example.retrofitapplication.lecture.model.Photo
+import com.example.retrofitapplication.lecture.model.SearchData
 import com.example.retrofitapplication.lecture.recyclerview.PhotoGridRecyclerViewAdapter
 import com.example.retrofitapplication.lecture.utils.Constants.TAG
+import com.example.retrofitapplication.lecture.utils.SharedPrefManager
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.switchmaterial.SwitchMaterial
 import kotlinx.android.synthetic.main.activity_photo_collection.*
 import kotlinx.android.synthetic.main.activity_photo_collection.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     // 데이터
@@ -31,6 +35,8 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
     private lateinit var mySearchView: SearchView
     // searchView edit text
     private lateinit var mySearchViewEditText:EditText
+    // 검색 기록을 남길 배열
+    private var searchHistoryList = ArrayList<SearchData>()
 
     private lateinit var clearSearchHistoryButton:Button
     private lateinit var searchHistorySwitch:SwitchMaterial
@@ -65,6 +71,13 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
             GridLayoutManager.VERTICAL,
             false)
         recyclerView.adapter = this.photoGridRecyclerViewAdapter
+
+        // 저장된 검색기록 가져오기
+        this.searchHistoryList = SharedPrefManager.getSearchHistoryList() as ArrayList<SearchData>  // getSearchHistoryList을 arraylist로 받는다.
+
+        this.searchHistoryList.forEach {
+            Log.d(TAG, "저장된 검색기록 - it.term : ${it.term}, it.timeStamp : ${it.timeStamp}")
+        }
     } // onCreate
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -119,6 +132,11 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
 
             // TODO:: api 호출
             // TODO:: 검색어 저장
+
+            // 검색 버튼을 누르면 데이터 저장
+            val newSearchData = SearchData(term = query, timeStamp = Date().toString())
+            this.searchHistoryList.add(newSearchData)   // 배열에 저장
+            SharedPrefManager.storeSearchHistoryList(this.searchHistoryList)    // sharedPreference에 데이터 저장
         }
 //        this.mySearchView.setQuery("", false)
 //        this.mySearchView.clearFocus()      // 키보드를 내림
