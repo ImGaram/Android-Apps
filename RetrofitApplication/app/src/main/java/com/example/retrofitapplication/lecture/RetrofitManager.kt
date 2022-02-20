@@ -13,7 +13,6 @@ import kotlin.collections.ArrayList
 
 class RetrofitManager {
 
-    // 싱글턴 적용
     companion object {
         val instance = RetrofitManager()
     }
@@ -84,7 +83,7 @@ class RetrofitManager {
 
                                     val outputDateString = formatter.format(parser.parse(createdAt))
 
-//                                    Log.d(TAG, "RetrofitManager - outputDateString : $outputDateString")
+                                    //                                Log.d(TAG, "RetrofitManager - outputDateString : $outputDateString")
 
                                     val photoItem = Photo(
                                         author = username,
@@ -110,4 +109,6 @@ class RetrofitManager {
 
         })
     }
+
+
 }
