@@ -26,6 +26,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorControlHighlight">@color/purple_500</item>
     </style>
 
     <style name="MyRadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">

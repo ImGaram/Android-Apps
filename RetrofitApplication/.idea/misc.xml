@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/user/AndroidStudioProjects/AndroidBasic/caches/transforms-3/216a0e55c362014aa07b738a23943960/transformed/material-1.6.0-alpha02/res/drawable-v23/m3_radiobutton_ripple.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/drawable-v24/rounded_bg_gray.xml" value="0.1525" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.1535" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/drawable/ic_baseline_delete_outline_24.xml" value="0.1375" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1525" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/drawable/rounded_bg_pink.xml" value="0.1525" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/layout_button_search.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/layout_photo_item.xml" value="0.4" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/layout/layout_search_item.xml" value="0.4" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/menu/top_app_bar.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/RetrofitApplication/app/src/main/res/menu/top_app_bar_menu.xml" value="0.24947916666666667" />
       </map>
