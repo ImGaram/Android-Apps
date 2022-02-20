@@ -26,11 +26,14 @@ import com.example.retrofitapplication.lecture.utils.SharedPrefManager
 import com.example.retrofitapplication.lecture.utils.toSimpleString
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.switchmaterial.SwitchMaterial
+import com.jakewharton.rxbinding4.widget.textChanges
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.kotlin.subscribeBy
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_photo_collection.*
-import kotlinx.android.synthetic.main.activity_photo_collection.view.*
-import retrofit2.Retrofit
-import java.lang.ProcessBuilder.Redirect.to
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListener,
@@ -49,6 +52,9 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
 
     private lateinit var clearSearchHistoryButton:Button
     private lateinit var searchHistorySwitch:SwitchMaterial
+
+    // 옵저버블 통합 제거를 위한 CompositeDisposable
+    private var myCompositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,6 +100,12 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
             this.insertSearchTermHistory(term)
         }
     } // onCreate
+
+    override fun onDestroy() {
+        // 모두 삭제
+        this.myCompositeDisposable.clear()
+        super.onDestroy()
+    }
 
     // 검색 기록 recyclerview 준비
     private fun searchHistoryRecyclerViewSetting(searchHistoryList: ArrayList<SearchData>) {
@@ -147,7 +159,7 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
                 when(hasExpanded) {
                     true -> {
                         Log.d(TAG, "search view opened")
-                        linearSearchHistoryView.visibility = View.VISIBLE
+//                        linearSearchHistoryView.visibility = View.VISIBLE
                         handleSearchViewUi()
                     }
                     false -> {
@@ -159,6 +171,27 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
 
             // 서치뷰에서 editText를 가져온다
             mySearchViewEditText = this.findViewById(androidx.appcompat.R.id.search_src_text)
+
+            // searchedEditText 옵저버블
+            val editTextChangedObservable = mySearchViewEditText.textChanges()  // editText의 글자가 바뀔때마다 옵저버블이 생김
+            val searchEditTextSubscription: Disposable = editTextChangedObservable  // 옵저버블을 통해서 연산자들을 추가함(필터링)
+                .debounce(1000, TimeUnit.MILLISECONDS)   // 글자가 입력되고 0.8초 뒤에 onNext 이벤트로 데이터 보내기
+                // IO 쓰레드에서 돌리겠다
+                // Scheduler instance intended for IO-bound work.
+                // 네트워크 요청, 파일 읽기, 쓰기, 디비처리 등
+                .subscribeOn(Schedulers.io()).subscribeBy(  // 구독을 통한 이벤트 응답
+                    onNext = {
+                        Log.d("RX", "onNext : $it")
+                        // TODO:: 흘러들어온 이벤트 데이터로 api 호출
+                        if (it.isNotEmpty()) {
+                            searchPhotoApiCall(it.toString())
+                        }
+                    },
+                    onComplete = { Log.d("RX", "onCompleted") },
+                    onError = { Log.d("RX", "onError : $it") }
+                )
+            // 살아있는 옵저버블을 compositeDisposable에 추가해 나중에 제거
+            myCompositeDisposable.add(searchEditTextSubscription)
         }
 
         this.mySearchViewEditText.apply {
@@ -192,6 +225,7 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
         return true
     }
 
+    // 글자가 입력 될때 발동되는 곳
     override fun onQueryTextChange(newText: String?): Boolean {
         Log.d(TAG, "onQueryTextChange - called / newText : $newText")
 //        val userInputText = newText ?: ""
@@ -202,6 +236,10 @@ class PhotoCollectionActivity: AppCompatActivity(), SearchView.OnQueryTextListen
 
         if (userInputText.count() == 12) {
             Toast.makeText(this, "검색어는 12자 까지만 입력 가능합니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        if (userInputText.length in 1..12) {    // 입력받은 글자 길이가 1~12 사이이다
+            searchPhotoApiCall(userInputText)   // api 호출
         }
 
         return true
