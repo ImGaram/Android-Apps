@@ -8,45 +8,61 @@
     android:gravity="center"
     tools:context=".MainActivity2">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+    <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
         android:text="Retrofit test with Wikipedia"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
 
-    <EditText
-        android:id="@+id/editTextKeyword"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="5dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:inputType="number"
-        android:hint="KeyWord"
-        android:layout_below="@+id/title" />
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/editTextKeyword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:hint="KeyWord"/>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btn_getOne"
+        android:id="@+id/buttonSearch"
+        android:textAlignment="center"
+        android:layout_below="@id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextKeyword"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="15dp"
-        android:text="search"
-        android:textAlignment="center" />
+        android:text="Search"/>
 
     <TextView
+        android:id="@+id/textViewRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Results found"
-        android:layout_below="@id/btn_getOne"
+        android:layout_below="@id/buttonSearch"
+        android:layout_toLeftOf="@id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="50dp"
+        android:lineSpacingExtra="7dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSearch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:lineSpacingExtra="7dp"
+        android:text=" Results found"
+        android:textAlignment="center"/>
 
 </RelativeLayout>
