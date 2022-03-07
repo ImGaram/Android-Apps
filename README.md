@@ -15,5 +15,6 @@
   <li>retrofit 연습</li>
   <li>retrofit 예제들</li>
   <li>room 연습</li>
+  <li>rxJava 연습</li>
   <li>shaaredpreference 연습</li>
 </ul>
