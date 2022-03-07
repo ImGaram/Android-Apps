@@ -2,7 +2,7 @@ package com.example.rxjavaapplication.example2.retrofit
 
 import com.example.rxjavaapplication.example2.Modules
 import com.google.gson.GsonBuilder
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

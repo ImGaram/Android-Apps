@@ -8,9 +8,10 @@ import android.widget.EditText
 import android.widget.TextView
 import com.example.rxjavaapplication.example2.Modules
 import com.example.rxjavaapplication.example2.retrofit.WikiApiService
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
+import java.lang.NullPointerException
 
 class MainActivity2 : AppCompatActivity() {
 
@@ -40,10 +41,14 @@ class MainActivity2 : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe ({ result ->
                 if (result.isSuccessful) {
-                    val res: Modules.Result =
-                        result.body() ?: Modules.Result(Modules.Query(Modules.SearchInfo(-1)))
+                    val res:Modules.Result = result.body()?: Modules.Result(Modules.Query(Modules.SearchInfo(-1)))
                     result.body()?.let {
-                        showResult(res.query.searchInfo.totalhits)
+                        // 임시 방편
+                        try {
+                            showResult(res.query.searchInfo.totalhits)
+                        }catch (e: NullPointerException) {
+                            Log.e(TAG, e.toString())
+                        }
                     }
                     Log.i(TAG, "success: ${result.code()}")
                 } else {
