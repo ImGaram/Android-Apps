@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class CountriesService {
     private val BASE_URL = "https://raw.githubusercontent.com/"
-    private lateinit var instance: CountriesService
+    private var instance: CountriesService? = null
 
     val api: CountriesApi = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -21,7 +21,7 @@ class CountriesService {
         if (instance == null) {
             instance = CountriesService()
         }
-        return instance
+        return instance!!
     }
 
     fun getCountries(): Single<MutableList<CountryModel>> {

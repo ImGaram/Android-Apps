@@ -11,7 +11,7 @@ class Util {
     fun loadImage(view: ImageView, url: String, progressDrawable: CircularProgressDrawable) {
         val options: RequestOptions = RequestOptions()
             .placeholder(progressDrawable)      // 이미지 로딩하는 동안 보여줄 원형 프로세스
-            .error(R.mipmap.ic_launcher_round)  // uri 로드할때 error 발생시 보여줄 이미지
+            .error(R.drawable.ic_baseline_insert_photo_24)  // uri 로드할때 error 발생시 보여줄 이미지
         Glide.with(view.context)
             .setDefaultRequestOptions(options)
             .load(url)
