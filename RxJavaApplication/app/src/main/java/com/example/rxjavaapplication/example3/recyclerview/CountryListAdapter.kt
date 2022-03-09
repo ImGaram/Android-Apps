@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import butterknife.ButterKnife
 import com.example.rxjavaapplication.R
 import com.example.rxjavaapplication.example3.Util
 import com.example.rxjavaapplication.example3.model.CountryModel
@@ -27,6 +28,12 @@ class CountryListAdapter(private val countryList:MutableList<CountryModel>): Rec
         return countryList.size
     }
 
+    fun updateCountries(newCountries: MutableList<CountryModel>) {
+        countryList.clear()
+        countryList.addAll(newCountries)
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         private val countryImage: ImageView = itemView.findViewById(R.id.imageView)
         private val countryName: TextView = itemView.findViewById(R.id.name)
@@ -37,6 +44,10 @@ class CountryListAdapter(private val countryList:MutableList<CountryModel>): Rec
             countryCapital.text = countryModel.capital
             val util = Util()
             util.loadImage(countryImage, countryModel.flag, util.getProgressDrawable(countryImage.context))
+        }
+
+        init {
+            ButterKnife.bind(this, itemView)
         }
     }
 }
