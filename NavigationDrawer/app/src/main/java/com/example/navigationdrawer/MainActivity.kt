@@ -15,12 +15,4 @@ class MainActivity : AppCompatActivity() {
             main_drawer_layout.openDrawer(GravityCompat.START)    // 네비게이션 드로어 열기
         }
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home->{ // 메뉴 버튼
-                main_drawer_layout.openDrawer(GravityCompat.START)    // 네비게이션 드로어 열기
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
 }

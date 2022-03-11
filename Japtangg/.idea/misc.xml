@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/Japtangg/app/src/main/res/layout/activity_google_login.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Japtangg/app/src/main/res/layout/activity_login_sucess.xml" value="0.23489583333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Japtangg/app/src/main/res/layout/activity_main.xml" value="0.2390625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Japtangg/app/src/main/res/layout/activity_retrofit.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

@@ -11,7 +11,6 @@
 
     <!--메인 레이아웃-->
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
         android:layout_height = "match_parent"
@@ -38,7 +37,7 @@
         android:id="@+id/main_navigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         app:headerLayout="@layout/main_drawer_header"
         app:menu="@menu/main_drawer_navigation">
 
