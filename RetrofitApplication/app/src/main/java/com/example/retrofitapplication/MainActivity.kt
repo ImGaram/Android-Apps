@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<Result?>, response: Response<Result?>) {
                 val result: Result? = response.body()
+                Log.d("retrofit", "onResponse result: $result")
                 val boxOfficeResult: BoxOfficeResult = result!!.boxOfficeResult
                 Log.d("retrofit", "Data fetch success")
                 mAdapter = MovieAdapter(boxOfficeResult.dailyBoxOfficeList!!)
