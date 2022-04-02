@@ -1,10 +1,11 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.tabpager
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.androidstudiobasic.Android.Fragment2
-import com.example.androidstudiobasic.Android.Fragment3
+import com.example.androidstudiobasic.fragment.Fragment1
+import com.example.androidstudiobasic.fragment.Fragment2
+import com.example.androidstudiobasic.fragment.Fragment3
 
 
 class TabPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
@@ -14,7 +15,7 @@ class TabPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
     // getItem(int) : 순서(position)에 따른 화면 지정
     override fun getItem(position: Int): Fragment {
         val fragment = when(position){
-            0->Fragment1()
+            0-> Fragment1()
             1-> Fragment2()
             2-> Fragment3()
             else -> Fragment1()

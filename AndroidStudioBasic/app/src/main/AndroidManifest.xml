@@ -18,13 +18,13 @@
 
         </activity>
         <activity
-            android:name=".TabPager2Activity"
+            android:name=".tabpager.TabPager2Activity"
             android:exported="true" />
         <activity
-            android:name=".TabPagerActivity"
+            android:name=".tabpager.TabPagerActivity"
             android:exported="true" />
         <activity
-            android:name=".PhoneBookWithRecyclerView"
+            android:name=".phonebook.PhoneBookWithRecyclerView"
             android:exported="true" />
         <activity
             android:name=".RecyclerActivity"
@@ -33,10 +33,10 @@
             android:name=".ListViewActivity"
             android:exported="true" />
         <activity
-            android:name=".PhoneBookDetailActivity"
+            android:name=".phonebook.PhoneBookDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".PhoneBookActivity"
+            android:name=".phonebook.PhoneBookActivity"
             android:exported="true" />
         <activity
             android:name=".AddviewActivity"
@@ -69,17 +69,17 @@
             android:name=".Listener"
             android:exported="true" />
         <activity
-            android:name=".Intent2"
+            android:name=".intent.Intent2"
             android:exported="true" />
         <activity
-            android:name=".Intent1"
+            android:name=".intent.Intent1"
             android:exported="true" />
         <activity
-            android:name=".FragmentOne"
+            android:name=".fragment.FragmentOne"
             android:exported="true"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".FragmentActivity"
+            android:name=".fragment.FragmentActivity"
             android:exported="true" />
         <activity
             android:name=".Calculator"

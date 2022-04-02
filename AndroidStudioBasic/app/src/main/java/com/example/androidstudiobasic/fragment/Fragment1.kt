@@ -1,7 +1,6 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +23,7 @@ class Fragment1 : Fragment(){
     }
 }
 
-private fun newInstant(): Fragment1{
+private fun newInstant(): Fragment1 {
     val args =Bundle()
     val frag = Fragment1()
     frag.arguments = args

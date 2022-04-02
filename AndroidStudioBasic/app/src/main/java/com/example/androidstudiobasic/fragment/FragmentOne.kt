@@ -1,4 +1,4 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.fragment
 
 import android.content.Context
 import android.os.Bundle

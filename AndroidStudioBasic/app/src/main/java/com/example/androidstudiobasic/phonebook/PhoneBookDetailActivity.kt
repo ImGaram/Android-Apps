@@ -1,8 +1,8 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.phonebook
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import com.example.androidstudiobasic.R
 import kotlinx.android.synthetic.main.activity_phone_book_detail.*
 
 class PhoneBookDetailActivity : AppCompatActivity() {

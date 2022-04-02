@@ -1,10 +1,9 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.tabpager
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.androidstudiobasic.R
-import com.example.androidstudiobasic.TabPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 class TabPagerActivity : AppCompatActivity() {
