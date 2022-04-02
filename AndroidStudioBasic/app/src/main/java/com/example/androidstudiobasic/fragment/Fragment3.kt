@@ -1,12 +1,10 @@
-package com.example.androidstudiobasic.Android
+package com.example.androidstudiobasic.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.androidstudiobasic.Fragment1
 import com.example.androidstudiobasic.R
 
 class Fragment3 : Fragment(){

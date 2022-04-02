@@ -1,10 +1,11 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.intent
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.androidstudiobasic.R
 import kotlinx.android.synthetic.main.activity_intent2.*
 
 class Intent2 : AppCompatActivity() {

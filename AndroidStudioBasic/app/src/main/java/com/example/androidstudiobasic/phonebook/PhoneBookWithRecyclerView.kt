@@ -1,4 +1,4 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.phonebook
 
 import android.app.Activity
 import android.content.Intent
@@ -8,9 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidstudiobasic.R
 import kotlinx.android.synthetic.main.activity_phone_book_with_recycler_view.*
 
 class PhoneBookWithRecyclerView : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.tabpager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
+import com.example.androidstudiobasic.R
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.activity_tab_pager.*
 import kotlinx.android.synthetic.main.activity_tab_pager.tab_layout
 import kotlinx.android.synthetic.main.activity_tab_pager.view_pager
-import kotlinx.android.synthetic.main.activity_tab_pager2.*
 
 // fragment 없이 tabPager 구현
 class TabPager2Activity : AppCompatActivity() {

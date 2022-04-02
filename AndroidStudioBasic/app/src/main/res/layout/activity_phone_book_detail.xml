@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical"
-    tools:context=".PhoneBookDetailActivity">
+    tools:context=".phonebook.PhoneBookDetailActivity">
 
     <ImageView
         android:id="@+id/back"

@@ -1,4 +1,4 @@
-package com.example.androidstudiobasic
+package com.example.androidstudiobasic.phonebook
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import org.w3c.dom.Text
+import com.example.androidstudiobasic.R
 
 class PhoneBookActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,9 +39,9 @@ class PhoneBookActivity : AppCompatActivity() {
         }
     }
 
-    fun addSetOnClickListener(person:Person, view: View){
+    fun addSetOnClickListener(person: Person, view: View){
         view.setOnClickListener {
-            val intent = Intent(this@PhoneBookActivity,PhoneBookDetailActivity::class.java)
+            val intent = Intent(this@PhoneBookActivity, PhoneBookDetailActivity::class.java)
             intent.putExtra("name",person.name)
             intent.putExtra("number",person.number)
             startActivity(intent)
@@ -53,7 +53,7 @@ class PhoneBook() {
     // 전화 번호부
     val personList = ArrayList<Person>()
 
-    fun addPerson(person:Person){
+    fun addPerson(person: Person){
         personList.add(person)
     }
 }
